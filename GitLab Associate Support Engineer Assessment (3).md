@@ -3,25 +3,24 @@
 ---
 # Question 1: Bash Script to List Usernames and Home Directories
 
-To achieve the desired output for this task, we need to create a bash file (list_users.sh) using ``vim list_users.sh`` to create the file and edit it using **vim**.
-
+To achieve the desired output for this task, we need to create and edit a bash file called -`list_users.sh`  using a vim text editor by runnig the command ``vim list_users.sh``. Ubuntu, a linux-based operating system from Multipass ( a lightweight virtual machine manager) was used to achieve the output for the task.
 [![Screenshot-2025-04-30-at-21-39-51.png](https://i.postimg.cc/1X2Y2BLg/Screenshot-2025-04-30-at-21-39-51.png)](https://postimg.cc/kRNctQM9)
 
-The next step is to add the Shebang ( `#!bin/bash`) in the  `test.sh` file followed by the line of code as shownn below:
+The next step is to add the Shebang ( `#!bin/bash`) in the  `list_users.sh` file followed by the line of code as shown below:
 
 
 
 [![Screenshot-2025-04-25-at-15-59-37.png](https://i.postimg.cc/W47GvzRN/Screenshot-2025-04-25-at-15-59-37.png)](https://postimg.cc/WDhFm2bC)
 
 ```bash
-#!/bin/bas
+#!/bin/bash
 cut -d: -f1,6 /etc/passwd
 ```
 **Explanation**:  
 
 - `#!/bin/bash`: This tells the system what interpreter to use in executing the file.
-- `cut`: A command-line utility to extract sections from lines of text.
-- `-d`: This tells `cut` to use `:` as the delimiter (which is how `/etc/passwd` fields are separated).
+- `cut`: A command-line utility to extract sections from a line of text.
+- `-d`: This tells `cut` to use colon `:` as the delimiter (which is how `/etc/passwd` fields are separated).
 - `-f1,6` selects the **username (field 1)** and **home directory (field 6)**.
 - `/etc/passwd`: This file contains user account information, with each line structured like this:  
 `username:password:UID:GID:GECOS:home_directory:shell`
@@ -29,7 +28,7 @@ cut -d: -f1,6 /etc/passwd
 To run the bash file, we need to give it an execute permission using `chmod +x list_users.sh` command as show below:
 [![Screenshot-2025-04-30-at-21-45-57.png](https://i.postimg.cc/ZK01KBHY/Screenshot-2025-04-30-at-21-45-57.png)](https://postimg.cc/RN5Pg022)
 
-Now we can run the script using `./list_users.sh` as shown below:
+Now we can run the script using `./list_users.sh` command:
 [![Screenshot-2025-04-30-at-21-49-29.png](https://i.postimg.cc/vmzs6RVG/Screenshot-2025-04-30-at-21-49-29.png)](https://postimg.cc/DW8DtM6N)
 
 **Expected output**:
@@ -42,7 +41,7 @@ nobody:/nonexistent
 
 [![Screenshot-2025-04-30-at-21-50-59.png](https://i.postimg.cc/6pL9X4zj/Screenshot-2025-04-30-at-21-50-59.png)](https://postimg.cc/DS0VQZ9L)
 
-Note: Some accounts like `_apt`, `nobody`, `messagebus`, `syslog` or `mysql` have `/nonexistent` as their home directory because the are **system users**, and not intended to log in interactively.
+Note: Some accounts like `_apt`, `nobody`, `messagebus`, `syslog` or `mysql` have `/nonexistent` as their home directory because they are **system users**, and not intended to log in interactively.
 
 **Source**:  
 - [Linux man pages - `cut`](https://man7.org/linux/man-pages/man1/cut.1.html)
@@ -65,7 +64,7 @@ git add file.txt
 git commit -m "first commit"
 
 echo "second" >> file.txt
-git commit -am "second commit"
+git commit -am "second commit" ## This adds and commits changes to the file simultaneously
 
 echo "third" >> file.txt
 git commit -am "third commit"
@@ -84,7 +83,7 @@ git merge feature-branch
 echo "final changes" >> file.txt
 git commit -am "fourth commit"
 ```
-Using the command `git log --graph --all --decorate`, we can visualise the branches and merges in this git commit graph as show below: 
+Using the command: `git log --graph --all --decorate`, we can visualise the branches and merges via a git commit graph as show below. This was achieved using the same steps above. 
 
 [![Screenshot-2025-05-01-at-16-41-32.png](https://i.postimg.cc/5NDqs6SH/Screenshot-2025-05-01-at-16-41-32.png)](https://postimg.cc/ykXZd65B)
 
@@ -198,8 +197,6 @@ This blog post was generated with the help of **ChatGPT**, prompted with:
 All content was reviewed and edited for clarity and accuracy by the author.
 
 ---
-
-
 
 
  
